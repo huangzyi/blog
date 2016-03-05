@@ -1,0 +1,23 @@
+html,
+body,
+div{
+	margin: 0;
+	height: 100%;
+}
+
+body>div{
+	background-image: url(../images/wall-paper-1.jpg);
+	background-position: center center;
+	background-repeat: no-repeat;
+}
+
+#form{
+	width: 400px;
+	height: 160px;
+	position: absolute;
+	margin: auto;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+}
