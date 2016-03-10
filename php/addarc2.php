@@ -15,9 +15,9 @@ echo "<a href=\"../index.php\" onclick='getnowuser()'><span>我的主页</span><
 <?php
 if(!empty($_POST)){
     $title = $_POST['title'];
-    var_dump($title);
+   // var_dump($title);
     $article = $_POST['article'];
-    var_dump($article);
+    //var_dump($article);
     $time = date("y-m-d h:i:s",time());
     //var_dump($time);
     $username = $user[$nowuser]->username;
@@ -27,7 +27,7 @@ if(!empty($_POST)){
     //header("location:article.php");
     if ($opconn->result!= ''){
         echo "插入成功";
-        header("refresh:3;url = addarc.php");
+        header("refresh:3;url = mainarticle.php");
     }else{
         echo "插入失败";
         header("refresh:3;url = addarc.php");

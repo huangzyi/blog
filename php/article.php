@@ -77,6 +77,28 @@ $nowuser = $_SESSION['nowuser'];
 				<input type="submit"   value="留言" name="submit"/>
 			</div>
 			</form>
+			<?php
+			if(!empty($_POST)){
+				$comment= $_POST['comment'];
+				var_dump($comment);
+				$time = date("y-m-d h:i:s",time());
+				//var_dump($time);
+				$username = $user[$nowuser]->username;
+				var_dump($username);
+				var_dump($nowuser);
+				$sql = "insert into comment(comment,arcid,username,userid,datetime) VALUES (\"$comment\",\"$arcid\",\"$username\",\"$nowuser\",\"$time\")";
+				$opconn->mysqli_query_rst($sql);
+				//header("location:article.php");
+				if ($opconn->result!= ''){
+					echo "插入成功";
+					header("refresh:3;url =article.php");
+				}else{
+					echo "插入失败";
+					header("refresh:3;url = article.php");
+				}
+
+			}
+			?>
 		</section>
 			<footer>
 				<div>
