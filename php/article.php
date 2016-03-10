@@ -46,7 +46,7 @@ $nowuser = $_SESSION['nowuser'];
 			<?php $_SESSION['arcid'] = $arcid; ?>
 			}</script>
 			<?php
-			$sql = "select * from comment WHERE arcid = $arcid";
+			$sql = "select * from comment WHERE arcid = \"$arcid\"";
 			$opconn->mysqli_query_rst($sql);
 			$opconn->getrowsnum($sql);
 			//if($opconn->rowsnum >0){echo"num为$opconn->rowsnum";}
@@ -64,19 +64,20 @@ $nowuser = $_SESSION['nowuser'];
 					echo "<div>" . $comment[$getid]->datetime . "</div></br>";
 					echo "<div>" . $comment[$getid]->comment . "</div>";
 					echo "    <div><input type=\"submit\"   value=\"留言\" name=\"submit\"/>
-<a href=\" delcom.php\" onclick='getcomid()'>删除评论</a></div>";
+<a href=\"delcom.php\" onclick='getcomid()'>删除评论</a></div>";
 					echo "    <div> <a href=\" changecom.php\" onclick='getcomid()'>修改评论</a></div></div>";
 					echo "<script>function getcomid(){ ".$_SESSION['comid'] = $getid;"}</script>";
 				}
 			}else{
 			}?>
-
+			<p>
 			<form action=""  method="POST" >
-			<input type="textarea" value="说点什么吧" name="comment"/>
+			<div><input type="textarea" value="说点什么吧" name="comment"/></div>
 			<div id="button">
 				<input type="submit"   value="留言" name="submit"/>
 			</div>
 			</form>
+				</p>
 			<?php
 			if(!empty($_POST)){
 				$comment= $_POST['comment'];

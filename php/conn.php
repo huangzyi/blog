@@ -1,4 +1,5 @@
 <?php
+header("Content-type:text/html;charset=utf-8");
 class opmysqli{
 	private $host = '127.0.0.1';
 	private $dbname = 'root';

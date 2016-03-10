@@ -53,7 +53,7 @@ if($comment[$comid]->username!==$user[$nowuser]->username)
                 <?php echo $article[$arcid]->article ?>
             </p>
             <?php
-            $sql = "select * from comment WHERE arcid = $arcid EXCEPT comid = $comid";
+            $sql = "select * from comment WHERE arcid = \"$arcid\" EXCEPT comid = \"$comid\"";
             $opconn->mysqli_query_rst($sql);
             $opconn->getrowsnum($sql);
             //if($opconn->rowsnum >0){echo"num为$opconn->rowsnum";}
@@ -71,13 +71,13 @@ if($comment[$comid]->username!==$user[$nowuser]->username)
                     echo "<div>" . $comment[$getid]->now . "</div></br>";
                     echo "<div>" . $comment[$getid]->comment . "</div>";
                     echo "     <a href=\" delcom.php\" onclick='getcomid()'>删除评论</a></div>";
-                    echo "     <a href=\" changecom.php\" onclick='getcomid()'>修改评论</a></div>";
-                    echo "<script>function getcomid(){ " . $_SESSION['comid'] = $getid;
-                    "}</script>";
+                    echo "     <a href=\" changecom.php\" onclick='getcomid()'>修改评论</a></div>";?>
+                    <script>function getcomid(){ <?php $_SESSION['comid'] = $getid;?>
+                    }</script><?php
                 }
             } else {
             }
-            echo "<form action=\"\"  method=\"POST\" >";
+            echo "<form action=\"changecom2.php\"  method=\"POST\" >";
             echo "   <input type=\"textarea\"value=" . $comment[$comid]->comment . " name=\"comment\"/>";
             ?>
             <div id="button">
@@ -93,22 +93,14 @@ if($comment[$comid]->username!==$user[$nowuser]->username)
                 $getid = $_SESSION['nowuser'];
                 echo "<span>用户名：" . $user[$getid]->username . "&nbsp;</span>";
                 echo "<span>id:" . $user[$getid]->id . "&nbsp;</span>";
-                echo "<a href=\"../index.php\" onclick='getnowuser()'><span>我的主页</span></a>";
-                echo "<script>function getnowuser(){ " . $_SESSION['blogid'] = $id;
-                "}</script>";
-                if(!empty($_POST)){
-                    $newcomment = $_POST['comment'];
-                    $oldcomment = $comment['$comid']->comment;
-                    $newtime = getdate();
-                    $sql = "UPDATE comment SET comment = $newcomment,datetime = $newtime WHERE comid = $comid";
-                    $opconn->mysqli_query_rst($sql);
-                    header("location:article.php");
-                }
-                }
-                ?>
+                echo "<a href=\"../index.php\" onclick='getnowuser()'><span>我的主页</span></a>";?>
+                <script>function getnowuser(){  <?php $_SESSION['blogid'] = $id; ?>}</script>
+
+
             </div>
         </footer>
     </div>
 </div>
 </body>
 </html>
+<?php } ?>

@@ -22,7 +22,7 @@ $id = $_SESSION['blogid'];
 		<div id="main">
 			<header>
 				<ul>
-					<a href="../index.php"><li>主页</li></a>
+					<a href="index.php"><li>主页</li></a>
 					<a href="php/mainarticle.php"><li>文章</li></a>
 					<a href="##"><li>个人</li></a>
 					<a href="##"><li>关于</li></a>

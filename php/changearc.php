@@ -32,6 +32,7 @@ if($id!=$getid)
 <div id="wall-paper">
     <div id="main">
         <header>
+            <?php /*
             <ul>
                 <a href="index.html">
                     <li>主页</li>
@@ -46,7 +47,7 @@ if($id!=$getid)
                     <li>关于</li>
                 </a>
                 <input type="text" value name="search" id="search" placeholder="   Search">
-            </ul>
+            </ul>*/?>
         </header>
         <section>
 
@@ -73,7 +74,7 @@ if($id!=$getid)
                     $title = $_POST['title'];
                     $article = $_POST['article'];
                     $time = getdate();
-                    $sql = "UPDATE article SET article = $article,now =$time,title = $title WHERE arcid = $arcid";
+                    $sql = "UPDATE article SET article = \"$article\",now =\"$time\",title = \"$title\" WHERE arcid = \"$arcid\"";
                     $opconn->mysqli_query_rst($sql);
                     header("location:article.php");
                 }
