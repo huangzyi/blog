@@ -4,9 +4,9 @@ session_start();
 //echo $_SESSION['arcid'];
 header("Content-type:text/html;charset=utf-8");
 $nowuser=$_SESSION['nowuser'];
-var_dump($nowuser);
+//var_dump($nowuser);
 $userid = (int)$_SESSION['blogid'];
-var_dump("$nowuser");
+//var_dump("$nowuser");
 /*
 if($username!=$nowuser)
 {
@@ -25,9 +25,9 @@ if($username!=$nowuser)
 <div id="wall-paper">
     <div id="main">
         <header>
-            <?/*
+<? /*
             <ul>
-                <a href="index.html">
+                <a href="../index.php">
                     <li>主页</li>
                 </a>
                 <a href="mainarticle.php">
@@ -41,7 +41,7 @@ if($username!=$nowuser)
                 </a>
                 <input type="text" value name="search" id="search" placeholder="   Search">
             </ul>*/?>
-            <form action=""  method="POST" >
+            <form action="addarc2.php"  method="POST" >
                 <input type="text"value=" 题目" name="title"/>
                 <input type="textarea\"value="" name="article"/>";
 
@@ -51,19 +51,17 @@ if($username!=$nowuser)
             </form>
         </header>
         <section>
-
         </section>
         <footer>
             <div>
                 <span>© Technical Copyright</span>
                 <?php
-
                 $getid = $_SESSION['nowuser'];
                 echo "<span>用户名：" . $user[$getid]->username . "&nbsp;</span>";
                 echo "<span>id:" . $user[$getid]->id . "&nbsp;</span>";
                 echo "<a href=\"index.php\" onclick='getnowuser()'><span>我的主页</span></a>";?>
                 <script>function getnowuser(){ <?php $_SESSION['blogid'] = $id;?>}</script>
-                <?php
+                <?php /*
                 if(!empty($_POST)){
                     $title = $_POST['title'];
                     //var_dump($title);
@@ -73,7 +71,7 @@ if($username!=$nowuser)
                     //var_dump($time);
                     $username = $user[$nowuser]->username;
                     //var_dump($username);
-                    $sql = "insert into article(article,author,arthorid,now,title) VALUES ($article,$username,$nowuser,$time,$title)";
+                    $sql = "insert into article(article,author,arthorid,now,title) VALUES (\"$article\",\"$username\",\"$nowuser\",\"$time\",\"$title\")";
                     $opconn->mysqli_query_rst($sql);
                     //header("location:article.php");
                     if ($opconn->result!= ''){
@@ -81,8 +79,7 @@ if($username!=$nowuser)
                     }else{
                         echo "插入失败";
                     }
-
-                }
+                } */
                 ?>
             </div>
         </footer>
