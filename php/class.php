@@ -80,7 +80,6 @@ class user extends opmysqli{
 $sql = "select * from user";
 $opconn->mysqli_query_rst($sql);
 while($row = mysqli_fetch_array($opconn->result)) {
-    //var_dump($row);
     $getid = $row['id'];
     $user[$getid] = new user();
     $user[$getid]->user_fetch($getid);

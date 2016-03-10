@@ -48,8 +48,7 @@ if($opconn->rowsnum >0){
 	}else{
 		//echo 'num小于3';
 	}
-
-	while($row = mysqli_fetch_array($opconn->result)){
+	while($row = mysqli_fetch_array($opconn->result)) {
 		$getid = $row['arcid'];
 		/*
         $article[$getid] = new article();
@@ -59,13 +58,12 @@ if($opconn->rowsnum >0){
 		echo"<img src='images/".rand(1,6).".png'>";
 		echo "<div>".$article[$getid]->title."</div></br>";
 		echo "<div>".$article[$getid]->now."</div>";
-		echo "       </a></div>";?>
-				<script>function getarcid(){ <?php $_SESSION['arcid'] = $getid; ?>}</script>
-				<?php
-                }
-                }else{
-                    echo "该用户没有日志";
-                }?>
+		echo "       </a></div>";
+		echo "<script>function getarcid(){ ".$_SESSION['arcid']=$getid;"}</script>";
+	}
+}else{
+	echo "该用户没有日志";
+}?>
 			</section>
 			<footer>
 				<div>
@@ -80,9 +78,9 @@ if($opconn->rowsnum >0){
 						echo "<span>用户名：".$user[$getid]->username."&nbsp;</span>";
 						echo "<span>id:".$user[$getid]->id."&nbsp;</span>";
 						echo "<a href=\"index.php\" onclick='getnowuser()'><span>我的主页</span></a>";
-					?>
-					<script>function getnowuser(){ <?php $_SESSION['blogid'] = $id; ?>}</script>
-					<?php }?>
+						echo "<script>function getnowuser(){ ".$_SESSION['blogid']=$id;"}</script>";
+					}
+ ?>
 				</div>
 			</footer>
 		</div>

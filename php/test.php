@@ -1,10 +1,10 @@
 <?php
 include('class.php');
 header("Content-type:text/html;charset=utf-8");
-//session_start();
+session_start();
 //echo $_SESSION['arcid'];
-//$arcid = $_SESSION['arcid'];
-//$nowuser = $_SESSION['nowuser'];
+$arcid = $_SESSION['arcid'];
+$nowuser = $_SESSION['nowuser'];
 /*
 <!DOCTYPE html>
 <html lang="en">
@@ -24,8 +24,8 @@ header("Content-type:text/html;charset=utf-8");
                 <a href="##"><li>关于</li></a>
                 <input type="text" value name="search" id="search" placeholder="   Search">
             </ul>
-        </header>
-
+        </header>*/
+?>
         <section>
 
 
@@ -42,8 +42,8 @@ header("Content-type:text/html;charset=utf-8");
                 <a href= "delarc.php">删除</a>
                 <a href= "changearc.php" >修改</a>
             </p>
-
-
+          <?php
+/*
             $sql = "select * from comment WHERE arcid = $arcid";
             $opconn->mysqli_query_rst($sql);
             $opconn->getrowsnum($sql);
@@ -102,38 +102,4 @@ header("Content-type:text/html;charset=utf-8");
 /*
 </div>
 </body>
-</html>
-$sql = "select * FROM article";
-//$result = mysqli_query($opconn->conn,"SELECT * FROM article");
-$opconn->mysqli_query_rst($sql);
-$opconn->getrowsnum($sql);
-//if($opconn->rowsnum >0){echo"num为$opconn->rowsnum";}
-//else{echo"0";}
-
-/*
-if($opconn->rowsnum >0) {
-    if ($opconn->rowsnum >= 4) {
-        //$sql = "select * from article WHERE authorid = $id limited (1,3)";
-        $opconn->mysqli_query_rst($sql);
-        //echo 'num大于3';
-    } else {
-        //echo 'num小于3';
-    }*/
-$sql = "select * from article";
-$opconn->mysqli_query_rst($sql);
-while($row = mysqli_fetch_array($opconn->result)) {
-        var_dump($row);
-        $getid = $row['arcid'];
-
-        /*$article[$getid] = new article();
-        $article[$getid]->arc_fetch($getid);
-        var_dump($article[$getid]);*/
-        echo "  <a href=\"php/article.php\" onclick='getarcid()'>";
-        echo "<img src='../images/" . rand(1, 6) . ".png'>";
-        echo  $article[$getid]->title . "</br>";
-        echo "" . $article[$getid]->now . "";
-        echo "       </a>";?>
-         <script>function getarcid(){ <?php $_SESSION['arcid'] = $getid; ?>}</script>
-<?php
-}
-//}
+</html>*/

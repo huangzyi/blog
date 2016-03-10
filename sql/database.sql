@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50617
 File Encoding         : 65001
 
-Date: 2016-03-10 16:43:34
+Date: 2016-03-05 07:14:43
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -21,20 +21,18 @@ SET FOREIGN_KEY_CHECKS=0;
 DROP TABLE IF EXISTS `article`;
 CREATE TABLE `article` (
   `arcid` int(10) NOT NULL AUTO_INCREMENT,
-  `article` text,
-  `author` varchar(20) DEFAULT NULL,
-  `authorid` varchar(20) DEFAULT NULL,
-  `now` datetime DEFAULT NULL,
-  `title` varchar(200) DEFAULT NULL,
+  `article` text NOT NULL,
+  `author` varchar(20) NOT NULL,
+  `authorid` varchar(20) NOT NULL,
+  `now` datetime NOT NULL,
+  `title` varchar(200) NOT NULL,
   PRIMARY KEY (`arcid`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of article
 -- ----------------------------
 INSERT INTO `article` VALUES ('1', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur doloribus ipsum harum, modi quaerat est suscipit iste, quis nostrum vel facere odit dolore quidem maxime. Eos saepe suscipit architecto soluta.', '5445', '12', '2016-03-01 12:49:51', 'Lorem ipsum dolor sit amet');
-INSERT INTO `article` VALUES ('2', '纷纷为发热威锋网', '5445', '12', '2016-03-05 13:48:58', '减肥写欧风');
-INSERT INTO `article` VALUES ('3', '放入饭和司法', '5445', '12', '2016-03-05 13:49:23', '非农覅偶而非奇偶额日记');
 
 -- ----------------------------
 -- Table structure for comment
@@ -137,7 +135,7 @@ CREATE TABLE `user` (
   `question` varchar(50) DEFAULT NULL,
   `answer` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=36 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of user
@@ -169,4 +167,3 @@ INSERT INTO `user` VALUES ('30', 'fgfdgdf', null, null, 'bggfbgfb', null, null, 
 INSERT INTO `user` VALUES ('32', 'dcdsc', null, null, 'vfdvfdv', null, null, null, null, null, null, null, null, null, null, null, null, null);
 INSERT INTO `user` VALUES ('33', 'dscsdc', null, null, 'vdfvfv', null, null, null, null, null, null, null, null, null, null, null, null, null);
 INSERT INTO `user` VALUES ('34', 'gyuggygu', null, null, 'tfytyty', null, null, null, null, null, null, null, null, null, null, null, null, null);
-INSERT INTO `user` VALUES ('35', 'ht', null, null, '5959', null, null, null, null, null, null, null, null, null, null, null, null, null);
