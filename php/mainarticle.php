@@ -30,7 +30,14 @@ $id = $_SESSION['blogid'];
 			</header>
 			<section>
 				<div id="button">
-					<a href="addarc.php">添加</a>
+					<a href="addarc.php" style="	width: 40px;
+	height: 40px;
+	border: none;
+	border-radius: 50%;
+	transition: width height;
+	cursor: pointer;
+	background-color: rgba(0,0,0,0.8);
+	color: #fff;">添加</a>
 				</div>
 				<?php
 $sql = "select * from article WHERE authorid = $id";
