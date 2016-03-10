@@ -9,8 +9,8 @@
 <?php
 include('class.php');
 session_start();
-var_dump($_SESSION['nowuser']);
-var_dump($_SESSION['blogid']);
+//var_dump($_SESSION['nowuser']);
+//var_dump($_SESSION['blogid']);
 $id = $_SESSION['blogid'];
 ?>
 	<div id="wall-paper">
@@ -49,7 +49,9 @@ if($opconn->rowsnum >0){
 		echo "<div>".$article[$getid]->title."</div></br>";
 		echo "<div>".$article[$getid]->now."</div>";
 		echo "       </a></div>";
-		echo "<script>function getarcid(){ ".$_SESSION['arcid']=$getid;"}";
+		?>
+		<script>function getarcid(){ <?php $_SESSION['arcid'] = $getid; ?>}</script>
+		<?php
 	}
 }else{
 	echo "该用户没有日志";
@@ -70,9 +72,9 @@ if($opconn->rowsnum >0){
 						echo "<span>用户名：".$user[$getid]->username."&nbsp;</span>";
 						echo "<span>id:".$user[$getid]->id."&nbsp;</span>";
 						echo "<a href=\"../index.php\" onclick='getnowuser()'><span>我的主页</span></a>";
-						echo "<script>function getnowuser(){ ".$_SESSION['blogid']=$id;"}</script>";
-					}
- ?>
+						?>
+						<script>function getnowuser(){ <?php $_SESSION['blogid'] = $id; ?>}</script>
+					<?php }?>
 				</div>
 			</footer>
 		</div>
